@@ -62,7 +62,7 @@ pipeline {
     }
         
     // DO NOT uncomment until 10_01 Lab
-    /*
+    
     stage('Staging Warm Up') {
       steps {
         echo "Waiting for the service to start..."
@@ -85,7 +85,7 @@ pipeline {
               scriptName: "jmeter/front-end_e2e_load.jmx",
               resultsDir: "e2eCheck_${env.APP_NAME}_warmup_${env.VERSION}_${BUILD_NUMBER}",
               serverUrl: "front-end.staging", 
-              serverPort: 8080,
+              serverPort: 80,
               checkPath: '/health',
               vuCount: 1,
               loopCount: 1,
@@ -117,7 +117,7 @@ pipeline {
                 scriptName: "jmeter/front-end_e2e_load.jmx",
                 resultsDir: "e2eCheck_${env.APP_NAME}_staging_${env.VERSION}_${BUILD_NUMBER}",
                 serverUrl: "front-end.staging", 
-                serverPort: 8080,
+                serverPort: 80,
                 checkPath: '/health',
                 vuCount: 10,
                 loopCount: 5,
@@ -141,6 +141,5 @@ pipeline {
         )
       }
     }
-    */
   }
 }
